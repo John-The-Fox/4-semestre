@@ -1,0 +1,30 @@
+user: laboratorio@grad
+ps:unaerp
+
+select tablespace_name from dba_tablespaces;
+
+CREATE
+create tablespace "F0x0_CODIGO"
+DATAFILE 'C:\app\oracle\oradata\grad\datafile\F0x0_CODIGO.dbf'
+size 10M;
+
+DELETE
+[*optional*]
+drop tablespace "F0x0_CODIGO" including contents and datafiles;
+
+RE-SIZE
+option 1:
+resize datafile
+alter database
+datafile 'C:\app\oracle\oradata\grad\datafile\F0x0_CODIGO.dbf'
+resize 15M;
+  
+
+option 2:
+add new datafile
+alter database "F0x0_CODIGO"
+datafile 'C:\app\oracle\oradata\grad\datafile\F0x0_CODIGOA.dbf'
+size 10M;
+
+  *the paht must be a new one
+  *the size will be added
