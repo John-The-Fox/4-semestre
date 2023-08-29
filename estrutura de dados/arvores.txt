@@ -1,0 +1,67 @@
+tree 1
+
+preorder
+ABDCE
+
+inorder
+DBACE
+
+postorder
+DBECA
+
+tree 2
+
+preorder
+ABCDEGF
+
+inorder
+BACEGDF
+
+postorder
+BGEFDCA
+
+tree 3
+
+preorder
+ABDCEF
+
+inorder
+BDAEFC
+
+postorder
+DBFECA
+
+
+CODE LOGIC
+
+PRE
+
+function pre
+	print current
+	if there is branch left
+		pre (branch left)
+	end if
+	if theres branch right
+		pre (branch right)
+	end if
+end function
+
+function in
+	if there is branch left
+		in (branch left)
+	end if
+	print curent
+	if there is branch right
+		in (branch right)
+	end if
+end function
+
+function post
+	if there is branch left
+		pre (branch left)
+	end if
+	if theres branch right
+		pre (branch right)
+	end if
+	print curent
+end function
