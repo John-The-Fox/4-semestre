@@ -29,3 +29,46 @@ CPF_ALUNO VARCHAR2(11) UNIQUE,
 SEX_ALUNO CHAR(1),
 CONSTRAINT PK_ALUNO PRIMARY KEY (ID_ALUNO)
 );
+
+31/08/23
+
+CREATE TABLE DISCIPLINA
+(
+COD_DISCIPLINA NUMBER(6),
+NOM_DISCIPLINA VARCHAR2(30) NOT NULL,
+CH_DISCIPLINA NUMBER(3),
+CONSTRAINT PK_DISCIPLINA PRIMARY KEY (COD_DISCIPLINA)
+);
+
+CREATE TABLE ALUNO_DISCIPLINA
+COD_DISCIPLINA NUMBER(6),
+ID_ALUNO NUMBER(6),
+SEM_ANO_ALU_DISC NUMBER(5),
+CONSTRAINT PK ALUNO DISCIPLINA PRIMARY KEY (COD DISCIPLINA, ID_ ALUNO, SEM_ANO_ALU_DISC),
+CONSTRAINT FK ALUNO_DISC_ALUNO FOREIGN KEY (ID_ALUNO) REFERENCES ALUNO,
+CONSTRAINT FK ALUNO_DISC_DISC FOREIGN KEY (COD_DISCIPLINA) REFERENCES DISCIPLINA
+):
+
+
+exercicio
+
+1 elaborar os scripts p/ criar as tabelas
+
+|Condominio                          |        |UNIDADE                             |
+|CNPJ_CONDOMINIO NUMBER(11) (PK)     |-------E|CNPJ_CONDOMINIO NUMBER(11) (PK) (FK)|
+|NOM_CONDOMINIO VARCHAR2(40) NOT NULL|        |NUM_UNIDADE NUMBER(3) (PK)          |
+|END_CONDOMINIO VARCHAR2(40)         |        |PROP_UNIDADE VARCHAR2(40) NOT NULL  |
+|BAI_CONDOMINIO VARCHAR2(35)         |        |CPF_PROP_UNIDADE NUMBER(11)         |
+|UF_CONDOMINIO CHAR(2)               |        |                                    |
+|CEP_CONDOMINIO NUMBER(8)            |        |                                    |
+                                               |              |
+                           ____________________|              |
+                          |                                   |
+                          M                                   M
+|TAXA                                |        |CONTATO_UNIDADE                     |
+|NUM_TAXA NUMBER(4) (PK)             |        |DDD_CONTATO_UNIDADE NUMBER(2) (PK)  |
+|DTV_TAXA DATE                       |        |NUM_CONTATO_UNIDADE NUMBER(10) (PK) |
+|VLR_TAXA NUMBER(8,2)                |        |CNPJ_CONDOMINIO NUMBER(11) (PK) (FK)|
+|CNPJ_CONDOMINIO NUMBER(11) (FK)     |        |NUM_UNIDADE NUMBER(3) (PK) (FK)     |
+|NUM_UNIDADE NUMBER(3) (FK)          |        |                                    |
+
