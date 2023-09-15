@@ -163,3 +163,30 @@ ADD COD_CURSO NUMBER(3);
 
 ALTER TABLE "ALUNO"
 ADD CONTRAINT FK_ALUNO_CURSO FOREIGN KEY (COD_CURSO) REFERENCES CURSO (COD_CURSO);
+
+DROP TABLE exclui a tab se ela não estiver referenciada
+
+ex
+
+1 excluir tab CURSO
+DROP TABLE CURSO;
+(*) tab ref com a tab ALUNO
+
+ALTER TABLE "ALUNO"
+DROP CONSTRAINT FK_ALUNO_CURSO;
+
+DROP TABLE CURSO;
+
+2 - excluir tab TESTE
+DROP TABLE TESTE;
+
+criar tabela apartir de uma existente
+
+CREATE TABLE nome
+AS SELECT atributo(s) FROM tabela;
+ex:
+
+CREATE TABLE "ALUNO_FRAG"
+AS SELECT ID_ALUNO, NOM_ALUNO, DTN_ALUNO
+FROM ALUNO;
+
