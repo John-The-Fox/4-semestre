@@ -15,10 +15,10 @@ struct tree{
 };
 
 Tree *create_tree() {
-  printf("Criando nodeva árvore\n");
-  Tree *nodeva_tree = (Tree *)malloc(sizeof(Tree));
-  nodeva_tree->root = NULL;
-  return nodeva_tree;
+  printf("Criando nova árvore\n");
+  Tree *new_tree = (Tree *)malloc(sizeof(Tree));
+  new_tree->root = NULL;
+  return new_tree;
 }
 Node *create_node(int value) {
   printf("Criando novo no...\n");
@@ -56,4 +56,35 @@ void tree_insert(Tree *tree, int value) {
     return;
   }
   insert_node(tree->root, new_node);
+}
+
+int rec_binary_src(Node *node, int value) {
+  if (node == NULL) {
+    printf("Valor %d não encontrado\n", value);
+    return 0;
+  } else if (node->data == value) {
+    printf("Valor %d encontrado\n", value);
+    return 1;
+  } else if (node->data > value) {
+    return rec_binary_src(node->left, value);
+  } else {
+    return rec_binary_src(node->right, value);
+  }
+}
+
+int busca_binaria(Tree *tree, int value) {
+  return rec_binary_src(tree->root, value);
+}
+
+void rec_print_pre_order(Node *node) {
+  if (node == NULL)
+    return;
+  printf("%d ", node->data);
+  rec_print_pre_order(node->left);
+  rec_print_pre_order(node->right);
+}
+
+void print_pre_ordem(Tree *tree) {
+  printf("Arvore impressa em pré ordem:\n");
+  rec_print_pre_order(tree->root);
 }
