@@ -84,7 +84,33 @@ void rec_print_pre_order(Node *node) {
   rec_print_pre_order(node->right);
 }
 
-void print_pre_ordem(Tree *tree) {
+void print_pre_order(Tree *tree) {
   printf("Arvore impressa em pré ordem:\n");
   rec_print_pre_order(tree->root);
+}
+
+void rec_print_pre_order(Node *node) {
+  if (node == NULL)
+    return;
+  printf("%d ", node->data);
+  rec_print_pre_order(node->left);
+  rec_print_pre_order(node->right);
+}
+
+void print_in_order(Tree *tree) {
+  printf("Arvore impressa em ordem:\n");
+  rec_print_in_order(tree->root);
+}
+
+void rec_print_post_order(Node *node) {
+  if (node == NULL)
+    return;
+  printf("%d ", node->data);
+  rec_print_pre_order(node->left);
+  rec_print_pre_order(node->right);
+}
+
+void print_post_order(Tree *tree) {
+  printf("Arvore impressa em pós ordem:\n");
+  rec_print_post_order(tree->root);
 }
