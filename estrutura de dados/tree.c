@@ -89,12 +89,12 @@ void print_pre_order(Tree *tree) {
   rec_print_pre_order(tree->root);
 }
 
-void rec_print_pre_order(Node *node) {
-  if (node == NULL)
-    return;
+void rec_print_in_order(Node *node) {
+  if (node->left =! NULL)
+    rec_print_in_order(node->left); 
   printf("%d ", node->data);
-  rec_print_in_order(node->left);
-  rec_print_in_order(node->right);
+  if (node->right =! NULL) 
+    rec_print_in_order(node->right);
 }
 
 void print_in_order(Tree *tree) {
