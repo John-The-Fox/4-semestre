@@ -95,6 +95,7 @@ void rec_print_in_order(Node *node) {
   printf("%d ", node->data);
   if (node->right =! NULL) 
     rec_print_in_order(node->right);
+  return;
 }
 
 void print_in_order(Tree *tree) {
@@ -103,11 +104,12 @@ void print_in_order(Tree *tree) {
 }
 
 void rec_print_post_order(Node *node) {
-  if (node == NULL)
-    return;
+  if (node->left =! NULL)
+    rec_print_post_order(node->left); 
+  if (node->right =! NULL) 
+    rec_print_post_order(node->right);
   printf("%d ", node->data);
-  rec_print_post_order(node->left);
-  rec_print_post_order(node->right);
+  return;
 }
 
 void print_post_order(Tree *tree) {
