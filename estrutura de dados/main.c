@@ -14,6 +14,7 @@ int main(int argc, char *argv[]) {
   binary_src(my_tree, 3);
   binary_src(my_tree, 8);
   print_pre_order(my_tree);
-  
+  print_in_order(my_tree);
+  print_post_order(my_tree);  
   return 0;
 }
