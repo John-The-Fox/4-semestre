@@ -214,5 +214,24 @@ atribuir papel DBA
 GRANT DBA TO "US_768343";
 
 DESC USER_SEQUENCES;
+SELECT SEQUENCE-NAME FROM USER-SEQUENCES;
+
+manipular sequencia
+CURRVAL - retornar o valor atual da sequencia
+NEXTVAL -  proximo valor
+
+ALTER SEQUENCE "nome"
+parametros
+
+NOTA:  esses são comandos DDL
+
+agora DML
+INSERT , UPDATE , DELETE
+
+INSERT INTO "tabela" [att]
+VALUES (val(s));
+
+alfanumerico entre aspas simples ''
+data passa valor seguido do formato (ex :'01/01/2023', 'dd/mm/yyyy')
 
 
