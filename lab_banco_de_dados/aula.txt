@@ -234,4 +234,21 @@ VALUES (val(s));
 alfanumerico entre aspas simples ''
 data passa valor seguido do formato (ex :'01/01/2023', 'dd/mm/yyyy')
 
+28/09/2023
+
+commit - gravar as tranformações
+rollback - undo what havent been commited
+
+update - alterar registros
+
+% - wild
+
+UPDATE ALUNO SET DTN-ALUNO = TO_DATE('15/01/2023', 'DD/MM/AAAA')
+WHERE NOM_ALUNO = "João Carlos';
+
+função de string
+
+UPPER() maiuscula
+LOWER() minuscula
+INITCAP() first letter
 
