@@ -14,6 +14,46 @@ struct tree{
 	Node*root;
 };
 
+int max(int a, int b) { return (a > b) ? a : b; }
+
+int hightCalculation(Node *node) {
+  if (node == NULL) {
+    return 0;
+  }
+  int r_hight = hightCalculation(node->right) + 1;
+  int l_hight = hightCalculation(node->left) + 1;
+  return max(r_hight, l_hight);
+}
+
+int balanceCalculation(Node *node) {
+  if (node == NULL) {
+    return 0;
+  }
+  return hightCalculation(node->right) - hightCalculation(node->left);
+}
+
+void rotate_r(Node *current_node, Tree *tree) {
+  Node *current_left = current_node->left;
+  Node *current_left_right = current_left->right;
+
+  current_left->right = current_node;
+  current_node->left = current_left_right;
+  if (current_node == tree->root) {
+    tree->root = current_left;
+  }
+}
+
+void rotate_l(Node *current_node, Tree *tree) {
+  Node *current_right = current_node->right;
+  Node *current_right_left = current_right->left;
+
+  current_right->left = current_node;
+  current_node->right = current_right_left;
+  if (current_node == tree->root) {
+    tree->root = current_right;
+  }
+}
+
 Tree *create_tree() {
   printf("Criando nova árvore\n");
   Tree *new_tree = (Tree *)malloc(sizeof(Tree));
@@ -44,6 +84,31 @@ void insert_node(Node *current_node, Node *new_node) {
     }
   } else {
     printf("Valor %d já existe na arvore\n", new_node->data);
+  }
+}
+
+int balance = balanceCalculation(current_node);
+
+  if (balance == -2) {
+    int left_balance = balanceCalculation(current_node->left);
+    if (left_balance == -1) {
+      printf("Rotação simples para direita\n");
+      rotate_r(current_node, tree);
+    } else if (left_balance == 1) {
+      printf("Rotação dupla para direita\n");
+      rotate_l(current_node->left, tree);
+      rotate_r(current_node, tree);
+    }
+  } else if (balance == 2) {
+    int right_balance = balanceCalculation(current_node->right);
+    if (right_balance == 1) {
+      printf("Rotação simples para esquerda\n");
+      rotate_l(current_node, tree);
+    } else if (right_balance == -1) {
+      printf("Rotação dupla para esquerda\n");
+      rotate_r(current_node->right, tree);
+      rotate_l(current_node, tree);
+    }
   }
 }
 
