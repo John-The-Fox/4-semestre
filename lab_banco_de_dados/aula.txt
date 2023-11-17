@@ -305,3 +305,26 @@ WHERE TO_CHAR(SYSDATE, 'MM') = TO_CHAR(DTN_PACIENTE, 'MM');
 
 
 9
+
+
+
+
+16/11/2023
+
+CREATE [OR REPLACE] TRIGGER "nome do gatilho"
+BEFORE | AFTER INSERT OR UPDATE OR DELETE "nome da tabela"
+FOR EACH ROW | STATEMENT
+
+BEGIN
+
+END;
+
+Identificar evento
+INSERTING
+UPDATING
+DELETING
+
+pseudo registros
+:new
+:old
+
