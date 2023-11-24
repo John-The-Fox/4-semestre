@@ -348,3 +348,14 @@ ELSE
 DELETE ALUNOFRAG WHERE ID_ALUNO = :OLD.ID_ALUNO;
 END IF;
 END;
+
+23/11/23
+
+CREATE [OR REPLACE] FUNCTION nome (parametro - nome tipo)
+RETURN tipo_dado_retorno
+[IA | AS]
+-- vars
+nome_var tipo_var
+BEGIN
+-- command
+END;
